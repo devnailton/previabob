@@ -6,7 +6,7 @@
   <title>Escolinha de Skate do Bob</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-gray-50 text-gray-900 antialiased overflow-x-hidden">
@@ -21,7 +21,7 @@
       <button id="menu-btn" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="mobile-menu" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/25 transition hover:border-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#004AAD] md:hidden">
         <i class="fas fa-bars text-2xl"></i>
       </button>
-      <ul class="hidden items-center gap-6 text-sm font-medium md:flex lg:gap-8">
+      <ul class="hidden items-center gap-6 text-sm font-medium md:flex lg:gap-8 xl:gap-10">
         <li><a href="#home" class="transition hover:text-[#FF7400] focus-visible:text-[#FF7400]">Início</a></li>
         <li><a href="#about" class="transition hover:text-[#FF7400] focus-visible:text-[#FF7400]">Sobre</a></li>
         <li><a href="#classes" class="transition hover:text-[#FF7400] focus-visible:text-[#FF7400]">Aulas</a></li>
@@ -29,7 +29,7 @@
         <li><a href="#contact" class="transition hover:text-[#FF7400] focus-visible:text-[#FF7400]">Contato</a></li>
       </ul>
     </div>
-    <div id="mobile-menu" class="mobile-nav hidden flex-col gap-2 px-4 py-8 pb-8 text-sm font-semibold uppercase tracking-wide md:hidden">
+    <div id="mobile-menu" class="mobile-nav hidden flex-col gap-5 px-4 py-8 text-base font-semibold uppercase tracking-wide md:hidden">
       <a href="#home" class="transition">Início</a>
       <a href="#about" class="transition">Sobre</a>
       <a href="#classes" class="transition">Aulas</a>
@@ -221,7 +221,7 @@
           <article class="flex h-full flex-col overflow-hidden rounded-3xl bg-gray-100 shadow-lg transition hover:-translate-y-1 hover:shadow-2xl">
             <div class="relative flex h-48 items-center justify-center bg-[#FF7400] text-white">
               <span class="absolute left-4 top-4 rounded-full bg-white px-3 py-1 text-xs font-bold text-[#FF7400]">15 JUN</span>
-              <i class="fas fa-medal text-5xl sm:text-6xl"></i>
+              <i class="fas fa-medal text-6xl"></i>
             </div>
             <div class="flex flex-1 flex-col p-6">
               <h3 class="text-xl font-semibold text-[#004AAD]">Campeonato Amador</h3>
@@ -246,7 +246,7 @@
           <article class="flex h-full flex-col overflow-hidden rounded-3xl bg-gray-100 shadow-lg transition hover:-translate-y-1 hover:shadow-2xl">
             <div class="relative flex h-48 items-center justify-center bg-[#004AAD] text-white">
               <span class="absolute left-4 top-4 rounded-full bg-white px-3 py-1 text-xs font-bold text-[#004AAD]">22 JUN</span>
-              <i class="fas fa-graduation-cap text-5xl sm:text-6xl"></i>
+              <i class="fas fa-graduation-cap text-6xl"></i>
             </div>
             <div class="flex flex-1 flex-col p-6">
               <h3 class="text-xl font-semibold text-[#004AAD]">Workshop de Manobras</h3>
@@ -271,7 +271,7 @@
           <article class="flex h-full flex-col overflow-hidden rounded-3xl bg-gray-100 shadow-lg transition hover:-translate-y-1 hover:shadow-2xl">
             <div class="relative flex h-48 items-center justify-center bg-[#FF7400] text-white">
               <span class="absolute left-4 top-4 rounded-full bg-white px-3 py-1 text-xs font-bold text-[#FF7400]">30 JUN</span>
-              <i class="fas fa-hands-helping text-5xl sm:text-6xl"></i>
+              <i class="fas fa-hands-helping text-6xl"></i>
             </div>
             <div class="flex flex-1 flex-col p-6">
               <h3 class="text-xl font-semibold text-[#004AAD]">Dia da Comunidade</h3>
@@ -360,7 +360,7 @@
               </div>
               <div>
                 <h4 class="text-base font-semibold text-[#004AAD]">Silvia Costa</h4>
-                <p aclass="text-sm text-gray-500">Diretora da SkateShop</p>
+                <p class="text-sm text-gray-500">Diretora da SkateShop</p>
               </div>
             </div>
           </article>
@@ -376,55 +376,56 @@
             Tem dúvidas, quer se inscrever ou ser um voluntário? Mande uma mensagem que retornaremos o mais rápido possível.
           </p>
         </div>
-        <div class="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:gap-12">
-          <div class="space-y-7">
-            <div class="contact-card p-6 sm:p-8">
-              <h3 class="text-xl font-semibold text-[#004AAD] sm:text-2xl">Informações</h3>
-              <div class="mt-5 sm:mt-6 space-y-5 sm:space-y-6">
-                <div class="flex items-start gap-3.5 sm:gap-4">
+
+        <div class="contact-grid">
+          <div class="space-y-8">
+            <div class="contact-card">
+              <h3 class="contact-card__title">Informações</h3>
+              <div class="contact-card__items">
+                <div class="contact-card__item">
                   <span class="feature-icon">
                     <i class="fas fa-map-marker-alt"></i>
                   </span>
                   <div>
-                    <h4 class="text-base font-semibold text-[#004AAD] sm:text-lg">Endereço</h4>
-                    <p class="mt-1.5 text-sm text-gray-600 sm:text-base">
+                    <h4 class="contact-card__subtitle">Endereço</h4>
+                    <p class="contact-card__text">
                       Rua do Skate, 123<br>
                       Bairro Radical<br>
                       São Paulo - SP
                     </p>
                   </div>
                 </div>
-                <div class="flex items-start gap-3.5 sm:gap-4">
+                <div class="contact-card__item">
                   <span class="feature-icon">
                     <i class="fas fa-phone-alt"></i>
                   </span>
                   <div>
-                    <h4 class="text-base font-semibold text-[#004AAD] sm:text-lg">Telefone</h4>
-                    <p class="mt-1.5 text-sm text-gray-600 sm:text-base">
+                    <h4 class="contact-card__subtitle">Telefone</h4>
+                    <p class="contact-card__text">
                       (11) 98765-4321<br>
                       (11) 91234-5678 (WhatsApp)
                     </p>
                   </div>
                 </div>
-                <div class="flex items-start gap-3.5 sm:gap-4">
+                <div class="contact-card__item">
                   <span class="feature-icon">
                     <i class="fas fa-envelope"></i>
                   </span>
                   <div>
-                    <h4 class="text-base font-semibold text-[#004AAD] sm:text-lg">Email</h4>
-                    <p class="mt-1.5 text-sm text-gray-600 sm:text-base">
+                    <h4 class="contact-card__subtitle">Email</h4>
+                    <p class="contact-card__text">
                       contato@escolinhadobob.com.br<br>
                       voluntarios@escolinhadobob.com.br
                     </p>
                   </div>
                 </div>
-                <div class="flex items-start gap-3.5 sm:gap-4">
+                <div class="contact-card__item">
                   <span class="feature-icon">
                     <i class="fas fa-clock"></i>
                   </span>
                   <div>
-                    <h4 class="text-base font-semibold text-[#004AAD] sm:text-lg">Horário de Funcionamento</h4>
-                    <p class="mt-1.5 text-sm text-gray-600 sm:text-base">
+                    <h4 class="contact-card__subtitle">Horário de Funcionamento</h4>
+                    <p class="contact-card__text">
                       Segunda a Sexta: 9h - 18h<br>
                       Sábado: 9h - 13h<br>
                       Domingo: Fechado
@@ -433,8 +434,9 @@
                 </div>
               </div>
             </div>
+
             <div>
-              <h3 class="text-lg font-semibold text-[#004AAD] sm:text-xl">Siga-nos</h3>
+              <h3 class="text-xl font-semibold text-[#004AAD] sm:text-2xl">Siga-nos</h3>
               <div class="mt-4 flex flex-wrap gap-3">
                 <a href="#" class="social-link bg-[#004AAD] text-white" aria-label="Facebook">
                   <i class="fab fa-facebook-f"></i>
@@ -451,24 +453,25 @@
               </div>
             </div>
           </div>
-          <form class="contact-form space-y-5 rounded-2xl bg-gray-100 p-6 shadow-lg sm:space-y-6 sm:rounded-3xl sm:p-8">
-            <div>
-              <label for="name" class="block text-xs font-semibold uppercase tracking-[0.14em] text-[#004AAD] sm:text-sm">Nome Completo</label>
-              <input id="name" type="text" placeholder="Digite seu nome" class="mt-2 w-full px-3 py-2.5 sm:px-4 sm:py-3">
+
+          <form class="contact-form">
+            <div class="contact-field">
+              <label for="name" class="contact-label">Nome Completo</label>
+              <input id="name" type="text" placeholder="Digite seu nome" class="contact-input">
             </div>
-            <div class="grid gap-5 sm:grid-cols-2 sm:gap-6">
+            <div class="contact-field contact-field--split">
               <div>
-                <label for="email" class="block text-xs font-semibold uppercase tracking-[0.14em] text-[#004AAD] sm:text-sm">Email</label>
-                <input id="email" type="email" placeholder="email@exemplo.com" class="mt-2 w-full px-3 py-2.5 sm:px-4 sm:py-3">
+                <label for="email" class="contact-label">Email</label>
+                <input id="email" type="email" placeholder="email@exemplo.com" class="contact-input">
               </div>
               <div>
-                <label for="phone" class="block text-xs font-semibold uppercase tracking-[0.14em] text-[#004AAD] sm:text-sm">Telefone</label>
-                <input id="phone" type="tel" placeholder="(11) 99999-9999" class="mt-2 w-full px-3 py-2.5 sm:px-4 sm:py-3">
+                <label for="phone" class="contact-label">Telefone</label>
+                <input id="phone" type="tel" placeholder="(11) 99999-9999" class="contact-input">
               </div>
             </div>
-            <div>
-              <label for="subject" class="block text-xs font-semibold uppercase tracking-[0.14em] text-[#004AAD] sm:text-sm">Assunto</label>
-              <select id="subject" class="mt-2 w-full px-3 py-2.5 sm:px-4 sm:py-3">
+            <div class="contact-field">
+              <label for="subject" class="contact-label">Assunto</label>
+              <select id="subject" class="contact-input">
                 <option value="">Selecione...</option>
                 <option value="classes">Matrícula nas Aulas</option>
                 <option value="volunteer">Ser Voluntário</option>
@@ -477,11 +480,11 @@
                 <option value="other">Outro</option>
               </select>
             </div>
-            <div>
-              <label for="message" class="block text-xs font-semibold uppercase tracking-[0.14em] text-[#004AAD] sm:text-sm">Mensagem</label>
-              <textarea id="message" rows="4" placeholder="Conte-nos como podemos ajudar" class="mt-2 w-full px-3 py-2.5 sm:px-4 sm:py-3"></textarea>
+            <div class="contact-field">
+              <label for="message" class="contact-label">Mensagem</label>
+              <textarea id="message" rows="5" placeholder="Conte-nos como podemos ajudar" class="contact-textarea"></textarea>
             </div>
-            <button type="submit" class="hero-cta hover-scale w-full rounded-full bg-[#FF7400] px-5 py-2.5 font-semibold text-white transition hover:bg-[#e66900] sm:px-6 sm:py-3">
+            <button type="submit" class="hero-cta hover-scale w-full rounded-full bg-[#FF7400] px-6 py-3 font-semibold text-white transition hover:bg-[#e66900]">
               Enviar Mensagem
               <i class="fas fa-paper-plane text-sm"></i>
             </button>
@@ -549,18 +552,19 @@
         </div>
       </div>
       <div class="mt-12 flex flex-col items-center justify-between gap-6 border-t border-white/10 pt-8 text-sm text-gray-400 lg:flex-row">
-        <p>&copy; 2023 Escolinha de Skate do Bob. Todos os direitos reservados.</p>
+        <p>&copy; 2025 Escolinha de Skate do Bob. Todos os direitos reservados.</p>
+        <p>Desenvolvido em projeto de extensão pelos alunos da FATEC-ROO - Orientador Prof. Esp. Nailton Silva</p>
         <div class="flex flex-wrap items-center justify-center gap-4 text-lg">
-          <a href="#" class="social-link bg-white/5 text-gray-300" aria-label="Facebook">
+          <a href="https://www.instagram.com/escolinhadeskatedobob/" target="_blank" class="social-link bg-white/5 text-gray-300" aria-label="Facebook">
             <i class="fab fa-facebook-f"></i>
           </a>
-          <a href="#" class="social-link bg-white/5 text-gray-300" aria-label="Instagram">
+          <a href="https://www.instagram.com/escolinhadeskatedobob/" target="_blank" class="social-link bg-white/5 text-gray-300" aria-label="Instagram">
             <i class="fab fa-instagram"></i>
           </a>
-          <a href="#" class="social-link bg-white/5 text-gray-300" aria-label="YouTube">
+          <a href="https://www.instagram.com/escolinhadeskatedobob/" target="_blank" class="social-link bg-white/5 text-gray-300" aria-label="YouTube">
             <i class="fab fa-youtube"></i>
           </a>
-          <a href="#" class="social-link bg-white/5 text-gray-300" aria-label="TikTok">
+          <a href="https://www.instagram.com/escolinhadeskatedobob/" target="_blank" class="social-link bg-white/5 text-gray-300" aria-label="TikTok">
             <i class="fab fa-tiktok"></i>
           </a>
         </div>
