@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Escola de Skate do Bob | Site em Construção</title>
+    <link rel="icon" type="image/png" href="logo.jpg" />
+    <link rel="shortcut icon" type="image/png" href="logo.jpg" />
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+    :root {
+    --primary: #ff2f75;
+    --primary-dark: #e02063;
+    --accent: #ffd34f;
+    --dark: #1c1c1f;
+    --light: #ffff;
+    --muted: #5e5e66;
+    --background: #fef5da;
+    }
+
+    * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    }
+
+    body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background);
+    color: var(--dark);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    }
+
+    header {
+    padding: 24px clamp(24px, 5vw, 72px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    }
+
+    .header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    }
+
+    .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--dark);
+    }
+
+    .brand img {
+    width: 48px;
+    height: 48px;
+    border-radius: 100vw;
+    object-fit: contain;
+    }
+
+    .tag {
+    background-color: rgba(255, 47, 117, 0.12);
+    color: var(--primary);
+    border-radius: 999px;
+    padding: 6px 16px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    }
+
+    .social-link-menu {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--dark);
+    color: var(--light);
+    padding: 12px 20px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.25s ease, background 0.25s ease;
+    }
+
+    .social-link-menu:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    }
+
+    .social-link-menu svg {
+    width: 20px;
+    height: 20px;
+    }
+
+    main {
+    flex: 1;
+    }
+
+    .hero {
+    position: relative;
+    padding: clamp(48px, 12vh, 120px) clamp(24px, 6vw, 96px);
+    display: grid;
+    gap: 32px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    align-items: center;
+    background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0))
+    , repeating-linear-gradient(90deg, #f7c843 0%, #f7c843 23%, #f3b52c 23%, #f3b52c 25%);
+    }
+
+    .hero::after {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    pointer-events: none;
+    border: 1px solid rgba(255, 47, 117, 0.15);
+    border-radius: 32px;
+    }
+
+    .hero__content {
+    position: relative;
+    z-index: 1;
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    }
+
+    .hero__content h1 {
+    font-size: clamp(2.5rem, 5vw, 3.6rem);
+    font-weight: 700;
+    color: var(--light);
+    text-shadow: 0 6px 22px rgba(28, 28, 31, 0.35);
+    }
+
+    .hero__content h1 span {
+    color: var(--dark);
+    background-color: var(--light);
+    padding: 2px 12px;
+    border-radius: 12px;
+    box-decoration-break: clone;
+    }
+
+    .hero__content p {
+    font-size: clamp(1rem, 2.2vw, 1.2rem);
+    color: rgba(28, 28, 31, 0.88);
+    mix-blend-mode: multiply;
+    }
+
+    .hero__visual {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+    .skateboard {
+    position: relative;
+    width: clamp(120px, 8vw, 240px);
+    height: clamp(360px, 50vw, 480px);
+    background: linear-gradient(160deg, #1a237e, #00bcd4 40%, #ff9800 70%, #ff2f75 100%);
+    border-radius: 140px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+    .skateboard::before,
+    .skateboard::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 18px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.15);
+    }
+
+    .skateboard::before {
+    top: 16px;
+    }
+
+    .skateboard::after {
+    bottom: 16px;
+    }
+
+    .skateboard span {
+    position: absolute;
+    display: block;
+    width: 62%;
+    height: 62%;
+    border-radius: 50%;
+    filter: blur(0px);
+    }
+
+    .skateboard span:nth-child(1) {
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 65%);
+    opacity: 0.6;
+    }
+
+    .skateboard span:nth-child(2) {
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+    width: 80%;
+    height: 80%;
+    }
+
+    .wheel {
+    position: absolute;
+    width: 37px;
+    height: 37px;
+    background: linear-gradient(135deg, #fafafa, #cccc);
+    border-radius: 50%;
+    bottom: 32px;
+    box-shadow: inset 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .wheel::before {
+    content: "";
+    position: absolute;
+    inset: 14px;
+    border-radius: 50%;
+    background: var(--primary);
+    }
+
+    .wheel-left {
+    left: 22px;
+    }
+
+    .wheel-right {
+    right: 22px;
+    }
+
+    .progress {
+    padding: clamp(40px, 6vw, 80px) clamp(24px, 6vw, 96px);
+    background: var(--light);
+    }
+
+    .progress h2 {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    margin-bottom: 16px;
+    }
+
+    .progress__lead {
+    color: var(--muted);
+    max-width: 520px;
+    margin-bottom: 32px;
+    }
+
+    .progress__bar {
+    position: relative;
+    width: 100%;
+    height: 14px;
+    border-radius: 999px;
+    background: rgba(28, 28, 31, 0.08);
+    overflow: hidden;
+    margin-bottom: 24px;
+    }
+
+    .progress__fill {
+    position: absolute;
+    inset: 0;
+    width: 0;
+    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+    border-radius: inherit;
+    transition: width 0.4s ease;
+    }
+
+    .progress__status {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 18px;
+    }
+
+    .progress__status li {
+    list-style: none;
+    padding: 20px;
+    border-radius: 18px;
+    border: 1px solid rgba(28, 28, 31, 0.08);
+    background: rgba(255, 246, 202, 0.45);
+    }
+
+    .progress__status li strong {
+    display: block;
+    font-size: 1.4rem;
+    color: var(--primary);
+    }
+
+    footer {
+    padding: 32px clamp(24px, 5vw, 72px);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--muted);
+    font-size: 0.95rem;
+    }
+
+    .social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--dark);
+    color: var(--light);
+    padding: 12px 20px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.25s ease, background 0.25s ease;
+    }
+
+    .social-link:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    }
+
+    .social-link svg {
+    width: 20px;
+    height: 20px;
+    }
+
+    @media (max-width: 768px) {
+    header {
+    flex-direction: column;
+    align-items: flex-start;
+    }
+
+    .hero::after {
+    border-radius: 24px;
+    }
+
+    .hero {
+    border-radius: 32px;
+    margin: 0 clamp(16px, 4vw, 32px) 32px;
+    }
+
+    .hero__content h1 {
+    text-shadow: 0 4px 18px rgba(28, 28, 31, 0.25);
+    }
+
+    footer {
+    flex-direction: column;
+    align-items: flex-start;
+    }
+    }
+    </style>
+</head>
+<body>
+    <header>
+    <div class="header-left">
+    <div class="brand">
+    <img src="logo.jpg" alt="Logo da Escola de Skate do Bob" />
+    <span>Escola de Skate do Bob</span>
+    </div>
+    <span class="tag">Site em construção</span>
+    </div>
+    <a class="social-link-menu" href="https://www.instagram.com/escolinhadeskatedobob/" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 7.35A4.65 4.65 0 1 0 12 16.65 4.65 4.65 0 1 0 12 7.35Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M16.75 6.5H16.76" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+    Instagram oficial
+    </a>
+    </header>
+
+    <main>
+    <section class="hero">
+    <div class="hero__content">
+    <p class="tag" style="background-color: rgba(43, 43, 43, 0.8); color: var(--light); width: fit-content;">Novidades em breve</p>
+    <h1><span>Site em construção</span><br />Voltamos já já com novas manobras.</h1>
+    <p>Estamos deixando cada detalhe perfeito para que você tenha a melhor experiência ao aprender ou aperfeiçoar suas manobras com os melhores instrutores.</p>
+    </div>
+    <div class="hero__visual" aria-hidden="true">
+    <div class="skateboard">
+    <span></span>
+    <span></span>
+    <div class="wheel wheel-left"></div>
+    <div class="wheel wheel-right"></div>
+    </div>
+    </div>
+    </section>
+
+    <section class="progress">
+    <h2>Preparando uma nova pista digital</h2>
+    <p class="progress__lead">Enquanto finalizamos cada sessão da nova plataforma, você pode acompanhar nosso progresso por aqui. Falta pouco para abrir as portas!</p>
+    <div class="progress__bar" aria-label="Progresso do desenvolvimento do site">
+    <span class="progress__fill" data-progress-fill></span>
+    </div>
+    <ul class="progress__status">
+    <li>
+    <strong>✅ 100%</strong>
+    Estrutura de conteúdo definida
+    </li>
+    <li>
+    <strong>⚙️ 75%</strong>
+    Ajustes visuais e responsividade
+    </li>
+    <li>
+    <strong>🛹 55%</strong>
+    Integração de matrículas e agenda
+    </li>
+    </ul>
+    </section>
+    </main>
+
+    <footer>
+    <p>© <span id="year"></span> Escola de Skate do Bob. Vem girar com a gente em breve!</p>
+    <a class="social-link" href="https://www.instagram.com/escolinhadeskatedobob/" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 7.35A4.65 4.65 0 1 0 12 16.65 4.65 4.65 0 1 0 12 7.35Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M16.75 6.5H16.76" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+    Instagram oficial
+    </a>
+    </footer>
+
+    <script>
+    const progressFill = document.querySelector('[data-progress-fill]');
+    const desiredProgress = 72;
+    let currentProgress = 0;
+
+    function animateProgress() {
+    currentProgress += 1;
+    progressFill.style.width = `${currentProgress}%`;
+    if (currentProgress < desiredProgress) {
+    requestAnimationFrame(animateProgress);
+    }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+    const yearDisplay = document.getElementById('year');
+    yearDisplay.textContent = new Date().getFullYear();
+    requestAnimationFrame(animateProgress);
+    });
+    </script>
+</body>
+</html>

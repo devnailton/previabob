@@ -1,449 +1,781 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Escola de Skate do Bob | Site em Construção</title>
-    <link rel="icon" type="image/png" href="logo.jpg" />
-    <link rel="shortcut icon" type="image/png" href="logo.jpg" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolinha de Skate do Bob</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-
-    :root {
-    --primary: #ff2f75;
-    --primary-dark: #e02063;
-    --accent: #ffd34f;
-    --dark: #1c1c1f;
-    --light: #ffff;
-    --muted: #5e5e66;
-    --background: #fef5da;
-    }
-
-    * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    }
-
-    body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--background);
-    color: var(--dark);
-    line-height: 1.6;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    }
-
-    header {
-    padding: 24px clamp(24px, 5vw, 72px);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    flex-wrap: wrap;
-    }
-
-    .header-left {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    }
-
-    .brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-weight: 600;
-    font-size: 1.1rem;
-    color: var(--dark);
-    }
-
-    .brand img {
-    width: 48px;
-    height: 48px;
-    border-radius: 100vw;
-    object-fit: contain;
-    }
-
-    .tag {
-    background-color: rgba(255, 47, 117, 0.12);
-    color: var(--primary);
-    border-radius: 999px;
-    padding: 6px 16px;
-    font-size: 0.82rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    }
-
-    .social-link-menu {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--dark);
-    color: var(--light);
-    padding: 12px 20px;
-    border-radius: 999px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: transform 0.25s ease, background 0.25s ease;
-    }
-
-    .social-link-menu:hover {
-    background: var(--primary-dark);
-    transform: translateY(-2px);
-    }
-
-    .social-link-menu svg {
-    width: 20px;
-    height: 20px;
-    }
-
-    main {
-    flex: 1;
-    }
-
-    .hero {
-    position: relative;
-    padding: clamp(48px, 12vh, 120px) clamp(24px, 6vw, 96px);
-    display: grid;
-    gap: 32px;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    align-items: center;
-    background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0))
-    , repeating-linear-gradient(90deg, #f7c843 0%, #f7c843 23%, #f3b52c 23%, #f3b52c 25%);
-    }
-
-    .hero::after {
-    content: "";
-    position: absolute;
-    inset: 12px;
-    pointer-events: none;
-    border: 1px solid rgba(255, 47, 117, 0.15);
-    border-radius: 32px;
-    }
-
-    .hero__content {
-    position: relative;
-    z-index: 1;
-    max-width: 520px;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    }
-
-    .hero__content h1 {
-    font-size: clamp(2.5rem, 5vw, 3.6rem);
-    font-weight: 700;
-    color: var(--light);
-    text-shadow: 0 6px 22px rgba(28, 28, 31, 0.35);
-    }
-
-    .hero__content h1 span {
-    color: var(--dark);
-    background-color: var(--light);
-    padding: 2px 12px;
-    border-radius: 12px;
-    box-decoration-break: clone;
-    }
-
-    .hero__content p {
-    font-size: clamp(1rem, 2.2vw, 1.2rem);
-    color: rgba(28, 28, 31, 0.88);
-    mix-blend-mode: multiply;
-    }
-
-    .hero__visual {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    }
-
-    .skateboard {
-    position: relative;
-    width: clamp(120px, 8vw, 240px);
-    height: clamp(360px, 50vw, 480px);
-    background: linear-gradient(160deg, #1a237e, #00bcd4 40%, #ff9800 70%, #ff2f75 100%);
-    border-radius: 140px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    }
-
-    .skateboard::before,
-    .skateboard::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60%;
-    height: 18px;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.15);
-    }
-
-    .skateboard::before {
-    top: 16px;
-    }
-
-    .skateboard::after {
-    bottom: 16px;
-    }
-
-    .skateboard span {
-    position: absolute;
-    display: block;
-    width: 62%;
-    height: 62%;
-    border-radius: 50%;
-    filter: blur(0px);
-    }
-
-    .skateboard span:nth-child(1) {
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 65%);
-    opacity: 0.6;
-    }
-
-    .skateboard span:nth-child(2) {
-    background: radial-gradient(circle, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
-    width: 80%;
-    height: 80%;
-    }
-
-    .wheel {
-    position: absolute;
-    width: 37px;
-    height: 37px;
-    background: linear-gradient(135deg, #fafafa, #cccc);
-    border-radius: 50%;
-    bottom: 32px;
-    box-shadow: inset 0 6px 12px rgba(0, 0, 0, 0.15);
-    }
-
-    .wheel::before {
-    content: "";
-    position: absolute;
-    inset: 14px;
-    border-radius: 50%;
-    background: var(--primary);
-    }
-
-    .wheel-left {
-    left: 22px;
-    }
-
-    .wheel-right {
-    right: 22px;
-    }
-
-    .progress {
-    padding: clamp(40px, 6vw, 80px) clamp(24px, 6vw, 96px);
-    background: var(--light);
-    }
-
-    .progress h2 {
-    font-size: clamp(1.8rem, 4vw, 2.4rem);
-    margin-bottom: 16px;
-    }
-
-    .progress__lead {
-    color: var(--muted);
-    max-width: 520px;
-    margin-bottom: 32px;
-    }
-
-    .progress__bar {
-    position: relative;
-    width: 100%;
-    height: 14px;
-    border-radius: 999px;
-    background: rgba(28, 28, 31, 0.08);
-    overflow: hidden;
-    margin-bottom: 24px;
-    }
-
-    .progress__fill {
-    position: absolute;
-    inset: 0;
-    width: 0;
-    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
-    border-radius: inherit;
-    transition: width 0.4s ease;
-    }
-
-    .progress__status {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 18px;
-    }
-
-    .progress__status li {
-    list-style: none;
-    padding: 20px;
-    border-radius: 18px;
-    border: 1px solid rgba(28, 28, 31, 0.08);
-    background: rgba(255, 246, 202, 0.45);
-    }
-
-    .progress__status li strong {
-    display: block;
-    font-size: 1.4rem;
-    color: var(--primary);
-    }
-
-    footer {
-    padding: 32px clamp(24px, 5vw, 72px);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--muted);
-    font-size: 0.95rem;
-    }
-
-    .social-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--dark);
-    color: var(--light);
-    padding: 12px 20px;
-    border-radius: 999px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: transform 0.25s ease, background 0.25s ease;
-    }
-
-    .social-link:hover {
-    background: var(--primary-dark);
-    transform: translateY(-2px);
-    }
-
-    .social-link svg {
-    width: 20px;
-    height: 20px;
-    }
-
-    @media (max-width: 768px) {
-    header {
-    flex-direction: column;
-    align-items: flex-start;
-    }
-
-    .hero::after {
-    border-radius: 24px;
-    }
-
-    .hero {
-    border-radius: 32px;
-    margin: 0 clamp(16px, 4vw, 32px) 32px;
-    }
-
-    .hero__content h1 {
-    text-shadow: 0 4px 18px rgba(28, 28, 31, 0.25);
-    }
-
-    footer {
-    flex-direction: column;
-    align-items: flex-start;
-    }
-    }
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .skateboard-bg {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M0,10 Q25,15 50,10 T100,10" fill="none" stroke="%23004AAD" stroke-width="2"/></svg>');
+            background-repeat: repeat-x;
+            background-position: bottom;
+            background-size: 200px 20px;
+        }
+        
+        .skateboard-wheel {
+            animation: spin 2s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
     </style>
 </head>
-<body>
-    <header>
-    <div class="header-left">
-    <div class="brand">
-    <img src="logo.jpg" alt="Logo da Escola de Skate do Bob" />
-    <span>Escola de Skate do Bob</span>
-    </div>
-    <span class="tag">Site em construção</span>
-    </div>
-    <a class="social-link-menu" href="https://www.instagram.com/escolinhadeskatedobob/" target="_blank" rel="noopener noreferrer">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 7.35A4.65 4.65 0 1 0 12 16.65 4.65 4.65 0 1 0 12 7.35Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M16.75 6.5H16.76" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-    </svg>
-    Instagram oficial
-    </a>
-    </header>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-[#004AAD] text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <img src="bob.png" width="80px" height="60px" alt="">
+                    <a href="#" class="text-xl font-bold">Escolinha de Skate do Bob</a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+                
+                <!-- Desktop menu -->
+                <div class="hidden md:flex space-x-6">
+                    <a href="#home" class="hover:text-[#FF7400] transition">Início</a>
+                    <a href="#about" class="hover:text-[#FF7400] transition">Sobre</a>
+                    <a href="#classes" class="hover:text-[#FF7400] transition">Aulas</a>
+                    <a href="#events" class="hover:text-[#FF7400] transition">Eventos</a>
+                    <a href="#contact" class="hover:text-[#FF7400] transition">Contato</a>
+                </div>
+            </div>
+            
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-2">
+                <a href="#home" class="block py-2 hover:text-[#FF7400] transition">Início</a>
+                <a href="#about" class="block py-2 hover:text-[#FF7400] transition">Sobre</a>
+                <a href="#classes" class="block py-2 hover:text-[#FF7400] transition">Aulas</a>
+                <a href="#events" class="block py-2 hover:text-[#FF7400] transition">Eventos</a>
+                <a href="#contact" class="block py-2 hover:text-[#FF7400] transition">Contato</a>
+            </div>
+        </div>
+    </nav>
 
-    <main>
-    <section class="hero">
-    <div class="hero__content">
-    <p class="tag" style="background-color: rgba(43, 43, 43, 0.8); color: var(--light); width: fit-content;">Novidades em breve</p>
-    <h1><span>Site em construção</span><br />Voltamos já já com novas manobras.</h1>
-    <p>Estamos deixando cada detalhe perfeito para que você tenha a melhor experiência ao aprender ou aperfeiçoar suas manobras com os melhores instrutores.</p>
+    <!-- Hero Section -->
+    <section id="home" class="relative overflow-hidden skateboard-bg">
+        <div class="container mx-auto px-4 py-20 md:py-32 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 text-[#004AAD]">
+                    Escolinha de Skate <span class="text-[#FF7400]">do Bob</span>
+                </h1>
+                <p class="text-lg md:text-xl mb-8 text-gray-700">
+                    Transformando vidas através do skate. Aprenda, evolua e faça parte da nossa comunidade!
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#classes" class="bg-[#FF7400] hover:bg-[#e66900] text-white font-bold py-3 px-6 rounded-full text-center transition hover-scale">
+                        Comece Agora
+                    </a>
+                    <a href="#about" class="border-2 border-[#004AAD] text-[#004AAD] hover:bg-[#004AAD] hover:text-white font-bold py-3 px-6 rounded-full text-center transition hover-scale">
+                        Conheça Mais
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 relative">
+    <div class="relative w-full max-w-md mx-auto">
+        <!-- Imagem do skatista -->
+        <img src="image.png" 
+            alt="Skatista ilustrativo" width="500px" height="500px"
+            class="w-full h-auto max-w-xs md:max-w-md mx-auto animate-float">
     </div>
-    <div class="hero__visual" aria-hidden="true">
-    <div class="skateboard">
-    <span></span>
-    <span></span>
-    <div class="wheel wheel-left"></div>
-    <div class="wheel wheel-right"></div>
-    </div>
-    </div>
+</div>
+
+<style>
+    /* Animação personalizada */
+    @keyframes float {
+        0% { transform: translateY(0px) rotate(-5deg); }
+        50% { transform: translateY(-20px) rotate(5deg); }
+        100% { transform: translateY(0px) rotate(-5deg); }
+    }
+
+    .animate-float {
+        animation: float 3s ease-in-out infinite;
+        transform-origin: center bottom;
+        max-width: 280px;
+        height: auto;
+    }
+
+    /* Ajustes para mobile */
+    @media (max-width: 767px) {
+        .animate-float {
+            max-width: 200px;
+        }
+        .absolute.bottom-6 {
+            bottom: 1rem;
+        }
+    }
+</style>
     </section>
 
-    <section class="progress">
-    <h2>Preparando uma nova pista digital</h2>
-    <p class="progress__lead">Enquanto finalizamos cada sessão da nova plataforma, você pode acompanhar nosso progresso por aqui. Falta pouco para abrir as portas!</p>
-    <div class="progress__bar" aria-label="Progresso do desenvolvimento do site">
-    <span class="progress__fill" data-progress-fill></span>
-    </div>
-    <ul class="progress__status">
-    <li>
-    <strong>✅ 100%</strong>
-    Estrutura de conteúdo definida
-    </li>
-    <li>
-    <strong>⚙️ 75%</strong>
-    Ajustes visuais e responsividade
-    </li>
-    <li>
-    <strong>🛹 55%</strong>
-    Integração de matrículas e agenda
-    </li>
-    </ul>
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#004AAD] mb-4">Sobre Nós</h2>
+                <div class="w-24 h-1 bg-[#FF7400] mx-auto mb-6"></div>
+                <p class="max-w-3xl mx-auto text-gray-600">
+                    A Escolinha de Skate do Bob é uma ONG dedicada a ensinar skate para crianças e jovens, promovendo esporte, cultura e inclusão social.
+                </p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <img src="bob2.png" alt="Sobre nos" 
+                        class="w-full rounded-lg shadow-xl">
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-bold text-[#004AAD] mb-4">Nossa História</h3>
+                    <p class="text-gray-600 mb-6">
+                        Fundada em 2010 por Roberto "Bob" Silva, a escolinha começou como um projeto pequeno na garagem de sua casa. Hoje, atendemos mais de 200 alunos por mês em nossa sede própria.
+                    </p>
+                    
+                    <div class="mb-6">
+                        <div class="flex items-start mb-4">
+                            <div class="bg-[#FF7400] rounded-full p-2 mr-4">
+                                <i class="fas fa-users text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#004AAD]">Missão</h4>
+                                <p class="text-gray-600">
+                                    Promover o desenvolvimento pessoal e social através do skateboarding, oferecendo aulas gratuitas e de qualidade.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start mb-4">
+                            <div class="bg-[#FF7400] rounded-full p-2 mr-4">
+                                <i class="fas fa-eye text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#004AAD]">Visão</h4>
+                                <p class="text-gray-600">
+                                    Ser referência nacional em projetos sociais que utilizam o skate como ferramenta de transformação.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-[#FF7400] rounded-full p-2 mr-4">
+                                <i class="fas fa-heart text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#004AAD]">Valores</h4>
+                                <p class="text-gray-600">
+                                    Respeito, inclusão, perseverança, diversão e amor pelo skate.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="inline-block bg-[#004AAD] hover:bg-[#003b8a] text-white font-bold py-3 px-6 rounded-full transition hover-scale">
+                        Seja um Voluntário
+                    </a>
+                </div>
+            </div>
+        </div>
     </section>
-    </main>
 
-    <footer>
-    <p>© <span id="year"></span> Escola de Skate do Bob. Vem girar com a gente em breve!</p>
-    <a class="social-link" href="https://www.instagram.com/escolinhadeskatedobob/" target="_blank" rel="noopener noreferrer">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 7.35A4.65 4.65 0 1 0 12 16.65 4.65 4.65 0 1 0 12 7.35Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M16.75 6.5H16.76" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-    </svg>
-    Instagram oficial
-    </a>
+    <!-- Classes Section -->
+    <section id="classes" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#004AAD] mb-4">Nossas Aulas</h2>
+                <div class="w-24 h-1 bg-[#FF7400] mx-auto mb-6"></div>
+                <p class="max-w-3xl mx-auto text-gray-600">
+                    Oferecemos aulas para todas as idades e níveis, desde iniciantes até avançados. Nossos instrutores são experientes e apaixonados pelo skate.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Class 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition hover-scale">
+                    <div class="h-48 bg-[#004AAD] flex items-center justify-center">
+                        <i class="fas fa-child text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-[#004AAD] mb-2">Iniciantes</h3>
+                        <p class="text-gray-600 mb-4">
+                            Aulas básicas para quem está começando no mundo do skate. Aprenda o equilíbrio, posicionamento e primeiras manobras.
+                        </p>
+                        <ul class="mb-4 text-gray-600">
+                            <li class="flex items-center mb-2">
+                                <i class="fas fa-check text-[#FF7400] mr-2"></i>
+                                Segurança primeiro
+                            </li>
+                            <li class="flex items-center mb-2">
+                                <i class="fas fa-check text-[#FF7400] mr-2"></i>
+                                Equipamentos inclusos
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-[#FF7400] mr-2"></i>
+                                Turmas pequenas
+                            </li>
+                        </ul>
+                        <div class="text-[#FF7400] font-bold text-lg mb-4">Grátis</div>
+                        <a href="#contact" class="block text-center bg-[#FF7400] hover:bg-[#e66900] text-white font-bold py-2 px-4 rounded-full transition">
+                            Inscreva-se
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Class 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition hover-scale">
+                    <div class="h-48 bg-[#FF7400] flex items-center justify-center">
+                        <i class="fas fa-user text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-[#004AAD] mb-2">Intermediário</h3>
+                        <p class="text-gray-600 mb-4">
+                            Para quem já domina o básico e quer evoluir suas manobras. Aprenda ollies, flips, grinds e muito mais.
+                        </p>
+                        <ul class="mb-4 text-gray-600">
+                            <li class="flex items-center mb-2">
+                                <i class="fas fa-check text-[#FF7400] mr-2"></i>
+                                Técnicas avançadas
+                            </li>
+                            <li class="flex items-center mb-2">
+                                <i class="fas fa-check text-[#FF7400] mr-2"></i>
+                                Video análise
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-[#FF7400] mr-2"></i>
+                                Acompanhamento personalizado
+                            </li>
+                        </ul>
+                        <div class="text-[#FF7400] font-bold text-lg mb-4">Grátis</div>
+                        <a href="#contact" class="block text-center bg-[#004AAD] hover:bg-[#003b8a] text-white font-bold py-2 px-4 rounded-full transition">
+                            Inscreva-se
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Class 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition hover-scale">
+                    <div class="h-48 bg-[#004AAD] flex items-center justify-center">
+                        <i class="fas fa-trophy text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-[#004AAD] mb-2">Avançado</h3>
+                        <p class="text-gray-600 mb-4">
+                            Para skatistas experientes que querem competir ou se profissionalizar. Treinos intensivos e preparação física.
+                        </p>
+                        <ul class="mb-4 text-gray-600">
+                            <li class="flex items-center mb-2">
+                                <i class="fas fa-check text-[#FF7400] mr-2"></i>
+                                Treino de competição
+                            </li>
+                            <li class="flex items-center mb-2">
+                                <i class="fas fa-check text-[#FF7400] mr-2"></i>
+                                Preparação física
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-[#FF7400] mr-2"></i>
+                                Mentoria profissional
+                            </li>
+                        </ul>
+                        <div class="text-[#FF7400] font-bold text-lg mb-4">Grátis</div>
+                        <a href="#contact" class="block text-center bg-[#FF7400] hover:bg-[#e66900] text-white font-bold py-2 px-4 rounded-full transition">
+                            Inscreva-se
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#004AAD] mb-4">Próximos Eventos</h2>
+                <div class="w-24 h-1 bg-[#FF7400] mx-auto mb-6"></div>
+                <p class="max-w-3xl mx-auto text-gray-600">
+                    Participe dos nossos eventos e campeonatos. Uma ótima oportunidade para aprender, competir e se divertir!
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Event 1 -->
+                <div class="bg-gray-100 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition hover-scale">
+                    <div class="h-48 bg-[#FF7400] flex items-center justify-center relative">
+                        <div class="absolute top-4 left-4 bg-white text-[#FF7400] font-bold py-1 px-3 rounded-full">
+                            15 JUN
+                        </div>
+                        <i class="fas fa-medal text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-[#004AAD] mb-2">Campeonato Amador</h3>
+                        <div class="flex items-center text-gray-500 mb-3">
+                            <i class="fas fa-map-marker-alt mr-2 text-[#FF7400]"></i>
+                            <span>Pista Central - Parque do Skate</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-clock mr-2 text-[#FF7400]"></i>
+                            <span>09:00 - 17:00</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Nosso tradicional campeonato para skatistas amadores. Categorias por idade e nível técnico.
+                        </p>
+                        <a href="#contact" class="inline-block bg-[#004AAD] hover:bg-[#003b8a] text-white font-bold py-2 px-4 rounded-full transition">
+                            Mais Informações
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Event 2 -->
+                <div class="bg-gray-100 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition hover-scale">
+                    <div class="h-48 bg-[#004AAD] flex items-center justify-center relative">
+                        <div class="absolute top-4 left-4 bg-white text-[#004AAD] font-bold py-1 px-3 rounded-full">
+                            22 JUN
+                        </div>
+                        <i class="fas fa-graduation-cap text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-[#004AAD] mb-2">Workshop de Manobras</h3>
+                        <div class="flex items-center text-gray-500 mb-3">
+                            <i class="fas fa-map-marker-alt mr-2 text-[#FF7400]"></i>
+                            <span>Escolinha do Bob - Sede</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-clock mr-2 text-[#FF7400]"></i>
+                            <span>14:00 - 18:00</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Workshop especial com o Bob ensinando técnicas avançadas e segredos para melhorar suas manobras.
+                        </p>
+                        <a href="#contact" class="inline-block bg-[#FF7400] hover:bg-[#e66900] text-white font-bold py-2 px-4 rounded-full transition">
+                            Mais Informações
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Event 3 -->
+                <div class="bg-gray-100 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition hover-scale">
+                    <div class="h-48 bg-[#FF7400] flex items-center justify-center relative">
+                        <div class="absolute top-4 left-4 bg-white text-[#FF7400] font-bold py-1 px-3 rounded-full">
+                            30 JUN
+                        </div>
+                        <i class="fas fa-hands-helping text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-[#004AAD] mb-2">Dia da Comunidade</h3>
+                        <div class="flex items-center text-gray-500 mb-3">
+                            <i class="fas fa-map-marker-alt mr-2 text-[#FF7400]"></i>
+                            <span>Praça da Juventude</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-clock mr-2 text-[#FF7400]"></i>
+                            <span>10:00 - 16:00</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Evento gratuito para toda a comunidade com oficinas, demonstrações e muita diversão sobre rodas.
+                        </p>
+                        <a href="#contact" class="inline-block bg-[#004AAD] hover:bg-[#003b8a] text-white font-bold py-2 px-4 rounded-full transition">
+                            Mais Informações
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#contact" class="inline-block bg-[#FF7400] hover:bg-[#e66900] text-white font-bold py-3 px-8 rounded-full text-lg transition hover-scale">
+                    Ver Todos os Eventos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#004AAD] mb-4">O Que Dizem Sobre Nós</h2>
+                <div class="w-24 h-1 bg-[#FF7400] mx-auto mb-6"></div>
+                <p class="max-w-3xl mx-auto text-gray-600">
+                    Veja o depoimento de alunos, pais e parceiros que fazem parte da nossa comunidade.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition hover-scale">
+                    <div class="flex items-center mb-4">
+                        <div class="text-[#FF7400] text-2xl mr-2">★</div>
+                        <div class="text-[#FF7400] text-2xl mr-2">★</div>
+                        <div class="text-[#FF7400] text-2xl mr-2">★</div>
+                        <div class="text-[#FF7400] text-2xl mr-2">★</div>
+                        <div class="text-[#FF7400] text-2xl">★</div>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">
+                        "A Escolinha do Bob mudou a vida do meu filho. Ele ganhou confiança, amigos e uma paixão pelo skate que o mantém longe das ruas."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-[#004AAD] rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            M
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-[#004AAD]">Marcela Souza</h4>
+                            <p class="text-gray-500 text-sm">Mãe do Lucas, 12 anos</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition hover-scale">
+                    <div class="flex items-center mb-4">
+                        <div class="text-[#FF7400] text-2xl mr-2">★</div>
+                        <div class="text-[#FF7400] text-2xl mr-2">★</div>
+                        <div class="text-[#FF7400] text-2xl mr-2">★</div>
+                        <div class="text-[#FF7400] text-2xl mr-2">★</div>
+                        <div class="text-[#FF7400] text-2xl">★</div>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">
+                        "Comecei sem saber nada e hoje já participo de competições. Os professores são incríveis e pacientes. Recomendo para todos!"
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-[#FF7400] rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            R
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-[#004AAD]">Rafael Mendes</h4>
+                            <p class="text-gray-500 text-sm">Aluno há 3 anos</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition hover-scale">
+                    <div class="flex items-center mb-4">
+                        <div class="text-[#FF7400] text-2xl mr-2">★</div>
+                        <div class="text-[#FF7400] text-2xl mr-2">★</div>
+                        <div class="text-[#FF7400] text-2xl mr-2">★</div>
+                        <div class="text-[#FF7400] text-2xl mr-2">★</div>
+                        <div class="text-[#FF7400] text-2xl">★</div>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">
+                        "Como empresa, nos orgulhamos de apoiar esse projeto que transforma vidas através do esporte. O trabalho do Bob é inspirador."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-[#004AAD] rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            S
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-[#004AAD]">Silvia Costa</h4>
+                            <p class="text-gray-500 text-sm">Diretora da SkateShop</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#004AAD] mb-4">Entre em Contato</h2>
+                <div class="w-24 h-1 bg-[#FF7400] mx-auto mb-6"></div>
+                <p class="max-w-3xl mx-auto text-gray-600">
+                    Tem dúvidas, quer se inscrever ou ser um voluntário? Mande uma mensagem que retornaremos o mais rápido possível.
+                </p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <div class="bg-gray-100 p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold text-[#004AAD] mb-6">Informações</h3>
+                        
+                        <div class="flex items-start mb-6">
+                            <div class="bg-[#FF7400] rounded-full p-3 mr-4">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#004AAD]">Endereço</h4>
+                                <p class="text-gray-600">
+                                    Rua do Skate, 123<br>
+                                    Bairro Radical<br>
+                                    São Paulo - SP
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start mb-6">
+                            <div class="bg-[#FF7400] rounded-full p-3 mr-4">
+                                <i class="fas fa-phone-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#004AAD]">Telefone</h4>
+                                <p class="text-gray-600">
+                                    (11) 98765-4321<br>
+                                    (11) 91234-5678 (WhatsApp)
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start mb-6">
+                            <div class="bg-[#FF7400] rounded-full p-3 mr-4">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#004AAD]">Email</h4>
+                                <p class="text-gray-600">
+                                    contato@escolinhadobob.com.br<br>
+                                    voluntarios@escolinhadobob.com.br
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-[#FF7400] rounded-full p-3 mr-4">
+                                <i class="fas fa-clock text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#004AAD]">Horário de Funcionamento</h4>
+                                <p class="text-gray-600">
+                                    Segunda a Sexta: 9h - 18h<br>
+                                    Sábado: 9h - 13h<br>
+                                    Domingo: Fechado
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h3 class="text-xl font-bold text-[#004AAD] mb-4">Siga-nos</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-[#004AAD] hover:bg-[#003b8a] text-white w-10 h-10 rounded-full flex items-center justify-center transition">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="bg-[#FF7400] hover:bg-[#e66900] text-white w-10 h-10 rounded-full flex items-center justify-center transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="bg-[#004AAD] hover:bg-[#003b8a] text-white w-10 h-10 rounded-full flex items-center justify-center transition">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="#" class="bg-[#FF7400] hover:bg-[#e66900] text-white w-10 h-10 rounded-full flex items-center justify-center transition">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <form class="bg-gray-100 p-8 rounded-lg shadow-lg">
+                        <div class="mb-6">
+                            <label for="name" class="block text-[#004AAD] font-bold mb-2">Nome Completo</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#FF7400]">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="email" class="block text-[#004AAD] font-bold mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#FF7400]">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="phone" class="block text-[#004AAD] font-bold mb-2">Telefone</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#FF7400]">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="subject" class="block text-[#004AAD] font-bold mb-2">Assunto</label>
+                            <select id="subject" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#FF7400]">
+                                <option value="">Selecione...</option>
+                                <option value="classes">Matrícula nas Aulas</option>
+                                <option value="volunteer">Ser Voluntário</option>
+                                <option value="donation">Doação</option>
+                                <option value="partnership">Parceria</option>
+                                <option value="other">Outro</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="message" class="block text-[#004AAD] font-bold mb-2">Mensagem</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#FF7400]"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-[#FF7400] hover:bg-[#e66900] text-white font-bold py-3 px-4 rounded-full transition">
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-16 bg-[#004AAD] text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">Assine Nossa Newsletter</h2>
+            <p class="max-w-2xl mx-auto mb-8">
+                Receba novidades sobre aulas, eventos e tudo que acontece na Escolinha do Bob diretamente no seu email.
+            </p>
+            
+            <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
+                <input type="email" placeholder="Seu melhor email" class="flex-grow px-4 py-3 rounded-full focus:outline-none focus:ring-2 focus:ring-[#FF7400] text-gray-800">
+                <button type="submit" class="bg-[#FF7400] hover:bg-[#e66900] text-white font-bold py-3 px-6 rounded-full transition">
+                    Assinar
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-8 md:mb-0">
+                    <div class="flex items-center mb-4">
+                        <img src="logo.svg" style="width: 125px; height: 125px;" alt="Logo">
+                    </div>
+                    <p class="max-w-xs text-gray-400">
+                        Transformando vidas através do skate desde 2010.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h3 class="text-lg font-bold mb-4 text-[#FF7400]">Links</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#home" class="hover:text-[#FF7400] transition">Início</a></li>
+                            <li><a href="#about" class="hover:text-[#FF7400] transition">Sobre</a></li>
+                            <li><a href="#classes" class="hover:text-[#FF7400] transition">Aulas</a></li>
+                            <li><a href="#events" class="hover:text-[#FF7400] transition">Eventos</a></li>
+                            <li><a href="#contact" class="hover:text-[#FF7400] transition">Contato</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-bold mb-4 text-[#FF7400]">Apoio</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="hover:text-[#FF7400] transition">Seja Voluntário</a></li>
+                            <li><a href="#" class="hover:text-[#FF7400] transition">Faça uma Doação</a></li>
+                            <li><a href="#" class="hover:text-[#FF7400] transition">Parceiros</a></li>
+                            <li><a href="#" class="hover:text-[#FF7400] transition">Trabalhe Conosco</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-bold mb-4 text-[#FF7400]">Legal</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="hover:text-[#FF7400] transition">Termos de Uso</a></li>
+                            <li><a href="#" class="hover:text-[#FF7400] transition">Política de Privacidade</a></li>
+                            <li><a href="#" class="hover:text-[#FF7400] transition">FAQ</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">
+                    &copy; 2023 Escolinha de Skate do Bob. Todos os direitos reservados.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-[#FF7400] transition">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-[#FF7400] transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-[#FF7400] transition">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-[#FF7400] transition">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-[#FF7400] text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition opacity-0 invisible">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script>
-    const progressFill = document.querySelector('[data-progress-fill]');
-    const desiredProgress = 72;
-    let currentProgress = 0;
-
-    function animateProgress() {
-    currentProgress += 1;
-    progressFill.style.width = `${currentProgress}%`;
-    if (currentProgress < desiredProgress) {
-    requestAnimationFrame(animateProgress);
-    }
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-    const yearDisplay = document.getElementById('year');
-    yearDisplay.textContent = new Date().getFullYear();
-    requestAnimationFrame(animateProgress);
-    });
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Back to top button
+        const backToTopBtn = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Form submission (prevent default for demo)
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+                alert('Formulário enviado com sucesso! (Esta é uma demonstração)');
+                form.reset();
+            });
+        });
     </script>
-</body>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;"></p></body>
 </html>
